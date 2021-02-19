@@ -43,6 +43,7 @@ kotlin {
         iosArm64 { nativeTargets.add(this) }
         iosArm32 { nativeTargets.add(this) }
         macosX64 { nativeTargets.add(this) }
+        tvosArm64 { nativeTargets.add(this) }
         mingwX64 { nativeTargets.add(this) }
         linuxX64 { nativeTargets.add(this) }
 
@@ -75,13 +76,13 @@ kotlin {
 
         val appleMain by creating
 
-        listOf("iosX64", "iosArm64", "iosArm32", "macosX64").forEach {
+        listOf("iosX64", "iosArm64", "iosArm32", "macosX64", "tvosArm64").forEach {
             getByName("${it}Main") {
                 dependsOn(appleMain)
             }
         }
 
-        listOf("iosX64", "iosArm64", "iosArm32", "macosX64", "mingwX64", "linuxX64").forEach {
+        listOf("iosX64", "iosArm64", "iosArm32", "macosX64", "tvosArm64", "mingwX64", "linuxX64").forEach {
             getByName("${it}Main") {
                 dependsOn(nativeMain)
             }
